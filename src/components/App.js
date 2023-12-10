@@ -8,11 +8,11 @@ const ACTIONS = {
   SET_SUB_NUM: "setSubNum",
   SET_ADD_NUM: "setAddNum"
 };
-const initialvalue={count: 10,
+const initialvalue={
+  count: 10,
   subNum: 1,
   addNum: 1
 }
-const [state,dispatch]=useReducer(reducer,initialvalue);
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.INCREMENT:
@@ -32,8 +32,8 @@ function reducer(state, action) {
       case ACTIONS.SET_SUB_NUM:
       return {
         count: state.count,
-        subNum: action.payload,
-        addNum: state.addNum
+        addNum: action.payload,
+        subNum: state.subNum
       };
  
    
@@ -53,7 +53,7 @@ function reducer(state, action) {
 }
 
 const App = () => {
- 
+  const [state,dispatch]=useReducer(reducer,initialvalue);
 
   function onIncrement() {
     dispatch({ type: ACTIONS.INCREMENT });
